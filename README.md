@@ -6,7 +6,7 @@ Sitio de 5 páginas de Camila Zoulalian, diseño y desarrollo web.
 
 | Archivo | Qué tiene |
 | --- | --- |
-| `index.html` (Inicio) | Hero con galería de proyectos, puertas a cada página, proyecto destacado (Kodland) y cierre "Estudio Zou" |
+| `index.html` (Inicio) | Hero con galería de proyectos, proyecto destacado (Kodland) y cierre "Estudio Zou" |
 | `sobre-mi.html` | Quién soy (polaroids) y Cómo trabajo (óvalo) |
 | `proyectos.html` | Proyectos con video y testimonios de clientes |
 | `servicios.html` | Servicios y preguntas frecuentes |
@@ -30,7 +30,7 @@ scss/
   components/      piezas que se repiten: etiqueta, ventana, botón, link, encabezado de página, siguiente página
   layout/          navbar, secciones y footer
   pages/           una carpeta por página
-    inicio/        hero y galería, puertas, destacado, cierre
+    inicio/        hero y galería, destacado, cierre
     sobre-mi/      about, cómo trabajo
     proyectos/     proyectos, clientes
     servicios/     servicios, FAQs
