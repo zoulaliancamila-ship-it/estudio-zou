@@ -1,0 +1,112 @@
+// =========================================================
+// SOBRE MÍ (cajón rojo + polaroids)
+// =========================================================
+@use "sass:list";
+@use "../../abstracts" as *;
+
+// Inclinación de cada polaroid, en orden
+$polaroid-tilts: (
+  rotate(-4deg),
+  rotate(2deg) translateY(10px),
+  rotate(5deg),
+);
+
+.about {
+  position: relative;
+  padding: 84px clamp(22px, 5vw, 64px) 60px;
+  background: color(red-deep);
+  border: 1px solid rgba(251, 246, 236, 0.08);
+  border-radius: 40px;
+  box-shadow: var(--shadow);
+  text-align: center;
+
+  @include respond(sm) {
+    padding-top: 76px;
+    border-radius: 28px;
+  }
+
+  &__tag {
+    position: absolute;
+    top: 26px;
+    left: 28px;
+    margin: 0;
+
+    @include respond(sm) {
+      top: 20px;
+      left: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 22px;
+    font-size: clamp(3.2rem, 7vw, 5rem);
+  }
+
+  &__text {
+    max-width: 58ch;
+    margin: 0 auto;
+    font-family: font(text);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+}
+
+// ---------- Fotos tipo polaroid ----------
+.polaroids {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 860px;
+  margin: 48px auto 0;
+
+  @include respond(sm) {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.polaroid {
+  margin: 0;
+  padding: 10px 10px 12px;
+  background: color(cream);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s $ease-bounce;
+
+  @for $i from 1 through list.length($polaroid-tilts) {
+    &:nth-child(#{$i}) {
+      transform: list.nth($polaroid-tilts, $i);
+    }
+  }
+
+  &:hover {
+    transform: rotate(0) scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  figcaption {
+    margin-top: 6px;
+    color: color(ink);
+    font-family: font(script);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  // En celular la tercera foto va sola y centrada
+  @include respond(sm) {
+    &:nth-child(3) {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 55%;
+    }
+  }
+}

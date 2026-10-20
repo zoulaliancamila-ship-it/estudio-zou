@@ -1,0 +1,50 @@
+// =========================================================
+// MIXINS Y FUNCIONES
+// =========================================================
+@use "sass:list";
+@use "sass:map";
+@use "variables" as *;
+
+// Devuelve el color como variable CSS: color(cream) -> var(--cream)
+@function color($name) {
+  // "#{...}" convierte nombres como yellow o red (que Sass lee como colores) en texto
+  $key: "#{$name}";
+  @if not map.has-key($colors, $key) {
+    @error "El color `#{$key}` no existe en $colors.";
+  }
+  @return var(--#{$key});
+}
+
+// Devuelve la tipografía como variable CSS: font(title) -> var(--font-title)
+@function font($name) {
+  @return var(--font-#{$name});
+}
+
+// Media query por nombre de breakpoint: @include respond(sm) { ... }
+@mixin respond($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "El breakpoint `#{$name}` no existe en $breakpoints.";
+  }
+  @media (max-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+// Sombra escalonada que da el efecto de letras en 3D
+// $depth = cantidad de capas sólidas, $blur = difuminado de la última
+@mixin extrude($depth, $blur, $color: color(green-deep)) {
+  $shadows: ();
+  @for $i from 1 through $depth {
+    $shadows: list.append($shadows, #{$i}px #{$i}px 0 $color, comma);
+  }
+  $last: $depth + 1;
+  $shadows: list.append($shadows, #{$last}px #{$last}px $blur rgba(0, 0, 0, 0.45), comma);
+  text-shadow: $shadows;
+}
+
+// Centrado con flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

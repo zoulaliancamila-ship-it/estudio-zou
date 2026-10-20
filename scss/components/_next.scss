@@ -1,0 +1,46 @@
+// =========================================================
+// SIGUIENTE PÁGINA (al final de cada página, para seguir navegando)
+// =========================================================
+@use "../abstracts" as *;
+
+.next {
+  text-align: center;
+
+  &__link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: color(cream);
+    text-decoration: none;
+  }
+
+  &__label {
+    font-family: font(label);
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0.7;
+  }
+
+  &__title {
+    font-family: font(title);
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    line-height: 1.05;
+    transition: color 0.2s ease;
+  }
+
+  &__arrow {
+    display: inline-block;
+    transition: transform 0.25s $ease-bounce;
+  }
+
+  &__link:hover &__title,
+  &__link:focus-visible &__title {
+    color: color(yellow);
+  }
+
+  &__link:hover &__arrow,
+  &__link:focus-visible &__arrow {
+    transform: translateX(10px);
+  }
+}

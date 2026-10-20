@@ -1,0 +1,25 @@
+// =========================================================
+// ENCABEZADO DE PÁGINA (proyectos, servicios y entrega)
+// Etiqueta + título principal (h1) + bajada
+// =========================================================
+@use "../abstracts" as *;
+
+.page-head {
+  max-width: 760px;
+  margin: 0 auto 10px;
+  text-align: center;
+
+  &__title {
+    font-size: clamp(3rem, 8vw, 5.4rem);
+    line-height: 1;
+  }
+
+  &__lead {
+    max-width: 56ch;
+    margin: 18px auto 0;
+    font-family: font(text);
+    font-size: 1rem;
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+}

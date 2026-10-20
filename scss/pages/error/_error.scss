@@ -1,0 +1,63 @@
+// =========================================================
+// 404: página no encontrada
+// =========================================================
+@use "../../abstracts" as *;
+
+.error {
+  display: flex;
+  justify-content: center;
+  padding-top: 90px;
+  padding-bottom: 100px;
+
+  &__card {
+    width: 100%;
+    max-width: 760px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 44px;
+    text-align: center;
+
+    @include respond(xs) {
+      padding: 32px 20px;
+    }
+  }
+
+  &__code {
+    margin: 0;
+    color: color(red);
+    font-family: font(editorial);
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-style: italic;
+    font-weight: 800;
+    line-height: 0.9;
+  }
+
+  &__title {
+    font-size: clamp(2.1rem, 5vw, 3rem);
+
+    em {
+      color: color(red);
+    }
+  }
+
+  &__text {
+    max-width: 46ch;
+    margin: 0;
+    font-family: font(text);
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+}

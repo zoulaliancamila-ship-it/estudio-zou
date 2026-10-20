@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <!-- ====== Básicos ====== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Estudio Zou | Diseño y desarrollo web en Buenos Aires</title>
+
+  <!-- ====== SEO ====== -->
+  <meta name="description" content="Estudio Zou: diseño y desarrollo web de Camila Zoulalian desde Buenos Aires. Landing pages, identidad de marca, SEO, dominio, hosting y mantenimiento mensual.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://estudiozou.netlify.app/">
+
+  <!-- ====== Autoría y derechos ====== -->
+  <meta name="author" content="Camila Zoulalian">
+  <meta name="copyright" content="© 2026 Camila Zoulalian · Estudio Zou">
+  <meta name="publisher" content="Estudio Zou">
+
+  <!-- ====== Vista previa al compartir (Instagram, LinkedIn, WhatsApp, mail) ====== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Estudio Zou">
+  <meta property="og:title" content="Estudio Zou | Diseño y desarrollo web en Buenos Aires">
+  <meta property="og:description" content="Landing pages e identidad de marca hechas en Argentina por Camila Zoulalian.">
+  <meta property="og:url" content="https://estudiozou.netlify.app/">
+  <meta property="og:image" content="https://estudiozou.netlify.app/images/og/estudio-zou.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Estudio Zou, diseño y desarrollo web por Camila Zoulalian">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Estudio Zou | Diseño y desarrollo web en Buenos Aires">
+  <meta name="twitter:description" content="Landing pages e identidad de marca hechas en Argentina por Camila Zoulalian.">
+  <meta name="twitter:image" content="https://estudiozou.netlify.app/images/og/estudio-zou.jpg">
+
+  <!-- ====== Íconos y celular ====== -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#172a15">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- ====== Datos estructurados: le cuentan a Google quién es Estudio Zou ====== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://estudiozou.netlify.app/#estudio",
+        "name": "Estudio Zou",
+        "description": "Diseño y desarrollo web para emprendimientos: landing pages, identidad de marca, desarrollo web y mantenimiento mensual.",
+        "url": "https://estudiozou.netlify.app/",
+        "image": "https://estudiozou.netlify.app/images/og/estudio-zou.jpg",
+        "logo": "https://estudiozou.netlify.app/images/icons/icon-512.png",
+        "email": "zoulaliancamila@gmail.com",
+        "areaServed": "AR",
+        "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressCountry": "AR" },
+        "founder": { "@id": "https://estudiozou.netlify.app/#camila" },
+        "sameAs": ["https://www.instagram.com/estudiozou/"],
+        "knowsLanguage": "es"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://estudiozou.netlify.app/#camila",
+        "name": "Camila Zoulalian",
+        "jobTitle": "Diseñadora y desarrolladora web",
+        "url": "https://estudiozou.netlify.app/sobre-mi.html",
+        "worksFor": { "@id": "https://estudiozou.netlify.app/#estudio" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://estudiozou.netlify.app/#web",
+        "name": "Estudio Zou",
+        "url": "https://estudiozou.netlify.app/",
+        "inLanguage": "es-AR",
+        "publisher": { "@id": "https://estudiozou.netlify.app/#estudio" }
+      }
+    ]
+  }
+  </script>
+  <!-- ====== Tipografías ====== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,800&family=Dancing+Script:wght@600&family=Fira+Sans+Condensed:wght@500;600&family=Instrument+Serif&family=Source+Code+Pro:wght@400;500&family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap">
+
+  <!-- ====== Estilos y scripts del sitio ====== -->
+  <!-- Los estilos se escriben en scss/ y se compilan a css/styles.css -->
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="js/main.js" defer></script>
+  <noscript>
+    <style>
+      .slide {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- ====================== NAVBAR (igual en todas las páginas) ====================== -->
+  <header class="site-header">
+    <nav class="navbar" id="navbar" aria-label="Principal">
+      <a class="navbar__brand" href="index.html" aria-label="Estudio Zou, ir al inicio">Zou</a>
+
+      <button class="navbar__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="navbar__bars" aria-hidden="true"></span>
+        Menú
+      </button>
+
+      <ul class="navbar__menu" id="nav-menu">
+        <li><a class="navbar__link" href="index.html" aria-current="page">Inicio</a></li>
+        <li><a class="navbar__link" href="sobre-mi.html">Sobre mí</a></li>
+        <li><a class="navbar__link" href="proyectos.html">Proyectos</a></li>
+        <li><a class="navbar__link" href="servicios.html">Servicios</a></li>
+        <li><a class="navbar__link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- ====================== HERO ====================== -->
+    <section class="slide hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <span class="tag tag--yellow hero__flag">🇦🇷 Hecho en Argentina</span>
+          <h1 class="hero__title" id="hero-title">Estudio<br>Zou</h1>
+          <p class="hero__byline">
+            <span class="hero__by-word">Diseño y desarrollo web por</span>
+            <span class="hero__by-name">Camila Zoulalian</span>
+          </p>
+          <p class="hero__lead">Webs con identidad propia para emprendimientos: que se vean como tu marca, que funcionen
+            perfecto en el celu y que te ayuden a vender y recibir reservas.</p>
+          <ul class="hero__services" aria-label="Qué hago">
+            <li class="hero__service hero__service--yellow">Landing pages</li>
+            <li class="hero__service hero__service--rose">Identidad de marca</li>
+            <li class="hero__service hero__service--green">Desarrollo web</li>
+            <li class="hero__service hero__service--cream">Mantenimiento</li>
+          </ul>
+          <div class="hero__actions">
+            <a class="btn" href="proyectos.html">Ver proyectos</a>
+            <a class="btn btn--ghost" href="contacto.html">Contacto</a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__logos" aria-label="Herramientas con las que trabajo">
+            <img class="hero__logo hero__logo--html" src="images/tech/html5.svg" alt="HTML" width="60" height="60">
+            <img class="hero__logo hero__logo--css" src="images/tech/css3.svg" alt="CSS" width="60" height="60">
+            <img class="hero__logo hero__logo--js" src="images/tech/javascript.svg" alt="JavaScript" width="60"
+              height="60">
+            <img class="hero__logo hero__logo--figma" src="images/tech/figma.svg" alt="Figma" width="60" height="60">
+          </div>
+          <div class="hero__gallery" aria-label="Galería de proyectos">
+          <a class="shot shot--1" href="proyectos.html">
+            <span class="win">
+              <span class="win__bar win__bar--red"><span
+                  class="win__dots"><span></span><span></span><span></span></span>studio-ink.netlify.app</span>
+              <picture><source srcset="videos/studio-ink-poster.webp" type="image/webp"><img src="videos/studio-ink-poster.jpg" alt="Captura de la web de Studio INK" width="800" height="500" decoding="async" fetchpriority="high"></picture>
+            </span>
+            <span class="shot__label">Studio INK · belleza</span>
+          </a>
+          <a class="shot shot--2" href="proyectos.html">
+            <span class="win">
+              <span class="win__bar"><span
+                  class="win__dots"><span></span><span></span><span></span></span>kodlandlatam.netlify.app</span>
+              <picture><source srcset="videos/kodland-poster.webp" type="image/webp"><img src="videos/kodland-poster.jpg" alt="Captura de la web de Kodland Latinoamérica" width="800" height="500" decoding="async"></picture>
+            </span>
+            <span class="shot__label">Kodland Latinoamérica · escuela online</span>
+          </a>
+          <a class="shot shot--3" href="proyectos.html">
+            <span class="win">
+              <span class="win__bar win__bar--yellow"><span
+                  class="win__dots"><span></span><span></span><span></span></span>mbnailss.netlify.app</span>
+              <picture><source srcset="videos/mbnails-poster.webp" type="image/webp"><img src="videos/mbnails-poster.jpg" alt="Captura de la web de MB Nail's Studio" width="800" height="500" decoding="async" loading="lazy"></picture>
+            </span>
+            <span class="shot__label">MB Nail's Studio · uñas</span>
+          </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PUERTAS A CADA PÁGINA ====================== -->
+    <nav aria-label="Explorá el estudio">
+      <ul class="blob-nav">
+        <li><a class="blob blob--1" href="sobre-mi.html">Quién soy</a></li>
+        <li><a class="blob blob--2" href="proyectos.html">Proyectos</a></li>
+        <li><a class="blob blob--3" href="servicios.html">Servicios</a></li>
+        <li><a class="blob blob--4" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- ====================== PROYECTO DESTACADO ====================== -->
+    <section class="slide" id="destacado" aria-labelledby="destacado-title">
+      <span class="tag tag--red">Proyecto destacado</span>
+      <article class="project featured">
+        <div class="win project__media">
+            <div class="win__bar"><span
+                class="win__dots"><span></span><span></span><span></span></span>kodlandlatam.netlify.app</div>
+            <video poster="videos/kodland-poster.webp" muted loop playsinline preload="none">
+              <source src="videos/kodland.webm" type="video/webm">
+              <source src="videos/kodland.mp4" type="video/mp4">
+            </video>
+            <span class="project__hint" aria-hidden="true">▶ recorrido</span>
+          </div>
+        <div class="featured__body">
+          <span class="project__cat">escuela online · landing comercial</span>
+          <h2 class="project__title" id="destacado-title">Kodland Latinoamérica</h2>
+          <p class="project__text">Escuela internacional online de programación y diseño para chicos de 5 a 17 años.
+            Diseñé y armé su landing comercial de punta a punta, con buscador de cursos y cero fricción hasta la
+            inscripción.</p>
+          <div class="featured__actions">
+            <a class="btn" href="https://kodlandlatam.netlify.app/" target="_blank" rel="noopener">Ver la web</a>
+            <a class="btn btn--ghost" href="proyectos.html">Todos los proyectos</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ====================== SIGUIENTE PÁGINA ====================== -->
+    <nav class="slide next" aria-label="Siguiente página">
+      <a class="next__link" href="sobre-mi.html">
+        <span class="next__label">Seguí por</span>
+        <span class="next__title">Sobre mí <span class="next__arrow" aria-hidden="true">→</span></span>
+      </a>
+    </nav>
+
+    <!-- ====================== CIERRE ====================== -->
+    <section class="slide closing" aria-label="Estudio Zou">
+      <p class="outro">
+        <span>Estudio</span>
+        <span>Zou</span>
+      </p>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER (igual en todas las páginas) ====================== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="footer__brand" href="index.html">Estudio Zou</a>
+      <nav aria-label="Pie de página">
+        <ul class="footer__links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <ul class="footer__contact">
+        <li><a href="https://www.instagram.com/estudiozou/" target="_blank" rel="noopener">@estudiozou</a></li>
+        <li><a href="mailto:zoulaliancamila@gmail.com">zoulaliancamila@gmail.com</a></li>
+      </ul>
+    </div>
+    <p class="footer__copy">Copyright © 2026 Camila Zoulalian. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+
+</html>

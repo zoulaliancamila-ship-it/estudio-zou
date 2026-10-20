@@ -1,0 +1,22 @@
+// =========================================================
+// VARIABLES CSS (:root)
+// Se generan a partir de los mapas de abstracts/_variables.scss
+// =========================================================
+@use "sass:list";
+@use "../abstracts" as *;
+
+:root {
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+
+  --line: #{$line};
+  --line-onbg: #{$line-onbg};
+  --shadow: #{$shadow};
+
+  @each $name, $stack in $fonts {
+    --font-#{$name}: #{list.join($stack, (), comma)};
+  }
+
+  --gutter: max(20px, calc((100vw - #{$max-width}) / 2));
+}

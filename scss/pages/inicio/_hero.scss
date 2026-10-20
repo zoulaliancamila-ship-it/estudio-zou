@@ -1,0 +1,269 @@
+// =========================================================
+// HERO (presentación + galería de proyectos)
+// Izquierda: quién soy y qué hago. Derecha: capturas de webs reales.
+// =========================================================
+@use "sass:map";
+@use "../../abstracts" as *;
+
+// Posición, rotación y retraso de cada logo que flota alrededor de la galería
+$hero-logos: (
+  "html": (top: -5%, left: -4%, rotate: -10deg, delay: 0s),
+  "css": (top: 4%, right: -3%, rotate: 9deg, delay: -1.5s),
+  "js": (bottom: -2%, right: 2%, rotate: -7deg, delay: -3s),
+  "figma": (top: 52%, left: -7%, rotate: 6deg, delay: -4.5s),
+);
+
+// Posición e inclinación de cada captura de la galería
+$shots: (
+  1: (top: 0, left: 0, rotate: -4deg, z: 1),
+  2: (top: 26%, right: 0, rotate: 3deg, z: 2),
+  3: (bottom: 0, left: 8%, rotate: -1deg, z: 3),
+);
+
+.hero {
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 56px;
+    padding: 30px 0 20px;
+
+    @include respond(md) {
+      grid-template-columns: 1fr;
+      gap: 44px;
+      padding-top: 10px;
+    }
+  }
+
+  // ---------- Texto ----------
+  &__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    min-width: 0;
+  }
+
+  &__flag {
+    margin-bottom: 0;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  &__title {
+    font-size: clamp(3.6rem, 9vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    @include extrude(6, 12px);
+  }
+
+  &__byline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 10px;
+    margin: 0;
+  }
+
+  &__by-word {
+    font-family: font(tag);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+
+  &__by-name {
+    font-family: font(script);
+    font-size: clamp(1.9rem, 3.6vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: color(red-onbg);
+  }
+
+  &__lead {
+    max-width: 48ch;
+    margin: 0;
+    font-family: font(text);
+    font-size: 1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  // ---------- Lo que hago (pastillas) ----------
+  &__services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__service {
+    padding: 7px 14px;
+    border-radius: $radius-pill;
+    color: color(green-deep);
+    font-family: font(tag);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+
+    &--yellow {
+      background: color(yellow);
+    }
+
+    &--rose {
+      background: color(red-onbg);
+    }
+
+    &--green {
+      background: color(green-onbg);
+    }
+
+    &--cream {
+      background: color(cream);
+      color: color(ink);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+  }
+
+  // ---------- Galería ----------
+  &__visual {
+    position: relative;
+    min-width: 0;
+  }
+
+  &__gallery {
+    position: relative;
+    height: clamp(420px, 40vw, 540px);
+
+    @include respond(md) {
+      display: flex;
+      gap: 16px;
+      height: auto;
+      margin: 0 calc(var(--gutter) * -1);
+      padding: 10px var(--gutter) 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+    }
+  }
+
+  // ---------- Logos que flotan ----------
+  &__logos {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+
+    @include respond(md) {
+      position: static;
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    width: clamp(42px, 4.4vw, 60px);
+    height: auto;
+    filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.45));
+    animation: logoFloat 6s ease-in-out infinite;
+
+    @each $name, $props in $hero-logos {
+      &--#{$name} {
+        @each $prop in (top, right, bottom, left) {
+          @if map.has-key($props, $prop) {
+            #{$prop}: map.get($props, $prop);
+          }
+        }
+        transform: rotate(map.get($props, rotate));
+        @if map.get($props, delay) != 0s {
+          animation-delay: map.get($props, delay);
+        }
+      }
+    }
+
+    @include respond(md) {
+      position: static;
+      width: 36px;
+    }
+  }
+}
+
+// ---------- Cada captura (lleva a proyectos) ----------
+.shot {
+  position: absolute;
+  display: block;
+  width: 68%;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.35s $ease-bounce;
+
+  .win {
+    display: block;
+  }
+
+  .win__bar {
+    font-size: 0.72rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @each $n, $props in $shots {
+    &--#{$n} {
+      @each $prop in (top, right, bottom, left) {
+        @if map.has-key($props, $prop) {
+          #{$prop}: map.get($props, $prop);
+        }
+      }
+      z-index: map.get($props, z);
+      transform: rotate(map.get($props, rotate));
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    z-index: 4;
+    transform: rotate(0) scale(1.04);
+  }
+
+  &__label {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    padding: 5px 11px;
+    border-radius: $radius-pill;
+    background: rgba(23, 42, 21, 0.86);
+    color: color(cream);
+    font-family: font(label);
+    font-size: 0.68rem;
+    font-weight: 700;
+  }
+
+  @include respond(md) {
+    position: relative;
+    inset: auto;
+    flex: 0 0 min(78%, 420px);
+    width: auto;
+    scroll-snap-align: start;
+    transform: none;
+  }
+}

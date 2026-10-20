@@ -1,0 +1,5 @@
+# Estudio Zou — instrucciones para buscadores (Google, Bing, etc.)
+User-agent: *
+Allow: /
+
+Sitemap: https://estudiozou.netlify.app/sitemap.xml

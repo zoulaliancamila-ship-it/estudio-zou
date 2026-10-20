@@ -1,0 +1,139 @@
+// =========================================================
+// CÓMO TRABAJO (óvalo punteado con palabras)
+// =========================================================
+@use "sass:list";
+@use "sass:map";
+@use "../../abstracts" as *;
+
+// Posición (x, y) y retraso de cada palabra sobre el óvalo, en orden
+$chips: (
+  (50%, 10%, 0s),
+  (77%, 19.4%, -0.7s),
+  (91.4%, 43.1%, -1.4s),
+  (86.4%, 70%, -2.1s),
+  (64.4%, 87.6%, -2.8s),
+  (35.6%, 87.6%, -3.5s),
+  (13.6%, 70%, -4.2s),
+  (8.6%, 43.1%, -4.9s),
+  (23%, 19.4%, -5.6s),
+);
+
+// Colores disponibles para las palabras
+$chip-colors: (
+  "yellow": (bg: color(yellow)),
+  "rose": (bg: color(red-onbg)),
+  "green": (bg: color(green-onbg)),
+  "cream": (bg: color(cream), text: color(ink)),
+);
+
+.how {
+  &__head {
+    text-align: center;
+  }
+
+  &__oval {
+    position: relative;
+    width: min(920px, 100%);
+    height: 480px;
+    margin: 6px auto 0;
+
+    @include respond(sm) {
+      height: 560px;
+    }
+  }
+
+  &__ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+
+    ellipse {
+      fill: none;
+      stroke: color(cream);
+      stroke-opacity: 0.45;
+      stroke-width: 2;
+      stroke-dasharray: 2 9;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      animation: ringMarch 18s linear infinite;
+    }
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+    white-space: nowrap;
+
+    @include respond(sm) {
+      width: 60%;
+      font-size: 2.3rem;
+      white-space: normal;
+      text-align: center;
+    }
+  }
+
+  &__words {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+// ---------- Cada palabra ----------
+.chip {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  padding: 8px 16px;
+  border-radius: $radius-pill;
+  box-shadow: var(--shadow);
+  color: color(green-deep);
+  font-family: font(tag);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  animation: chipBob 4.5s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+
+  @for $i from 1 through list.length($chips) {
+    $chip: list.nth($chips, $i);
+
+    &:nth-child(#{$i}) {
+      --x: #{list.nth($chip, 1)};
+      --y: #{list.nth($chip, 2)};
+      --d: #{list.nth($chip, 3)};
+    }
+  }
+
+  @each $name, $style in $chip-colors {
+    &--#{$name} {
+      background: map.get($style, bg);
+      @if map.has-key($style, text) {
+        color: map.get($style, text);
+      }
+    }
+  }
+
+  @include respond(sm) {
+    padding: 6px 11px;
+    font-size: 0.72rem;
+
+    // En pantallas angostas separo las dos palabras de abajo
+    &:nth-child(5) {
+      --x: 74.1%;
+      --y: 82.8%;
+    }
+
+    &:nth-child(6) {
+      --x: 25.9%;
+      --y: 82.8%;
+    }
+  }
+}

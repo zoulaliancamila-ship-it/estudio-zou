@@ -1,0 +1,49 @@
+// =========================================================
+// ETIQUETA (01 — Sobre mí, 🇦🇷 Hecho en Argentina, etc.)
+// =========================================================
+@use "../abstracts" as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 6px 15px;
+  border-radius: $radius-pill;
+  font-family: font(label);
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  &::before {
+    content: "●";
+    font-size: 0.6rem;
+  }
+
+  &--yellow {
+    background: color(yellow);
+    color: color(green-deep);
+
+    &::before {
+      color: color(red-deep);
+    }
+  }
+
+  &--red {
+    background: color(red);
+    color: color(cream);
+
+    &::before {
+      color: color(yellow);
+    }
+  }
+
+  &--green {
+    background: color(green);
+    color: color(cream);
+    border: 1px solid rgba(244, 222, 139, 0.3);
+
+    &::before {
+      color: color(yellow);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+// =========================================================
+// TIPOGRAFÍA BASE
+// =========================================================
+@use "../abstracts" as *;
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: font(title);
+  font-weight: 400;
+  line-height: 1.1;
+  text-wrap: balance;
+}

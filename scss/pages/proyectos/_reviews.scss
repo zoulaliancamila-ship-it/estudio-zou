@@ -1,0 +1,68 @@
+// =========================================================
+// CLIENTES (globos flotantes con reseñas)
+// =========================================================
+@use "sass:map";
+@use "../../abstracts" as *;
+
+// Color de fondo y retraso de cada globo
+$review-styles: (
+  "yellow": (bg: color(yellow), delay: 0s),
+  "green": (bg: color(green-onbg), delay: -3s),
+  "rose": (bg: color(rose), delay: -6s),
+);
+
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 28px 0 10px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 240px;
+  min-height: 200px;
+  margin: 0;
+  padding: 30px 28px;
+  border-radius: 63% 37% 54% 46% / 43% 51% 49% 57%;
+  box-shadow: var(--shadow);
+  color: color(green-deep);
+  text-align: center;
+  animation: blobMorph 9s ease-in-out infinite, blobFloat 8s ease-in-out infinite;
+
+  blockquote {
+    margin: 0;
+    font-family: font(label);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  figcaption {
+    font-family: font(label);
+    font-size: 0.72rem;
+    opacity: 0.75;
+  }
+
+  @each $name, $style in $review-styles {
+    &--#{$name} {
+      background: map.get($style, bg);
+      @if map.get($style, delay) != 0s {
+        animation-delay: map.get($style, delay), map.get($style, delay);
+      }
+    }
+  }
+
+  @include respond(xs) {
+    width: 200px;
+    min-height: 170px;
+    padding: 24px 22px;
+  }
+}

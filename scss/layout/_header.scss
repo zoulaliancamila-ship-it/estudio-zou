@@ -1,0 +1,174 @@
+// =========================================================
+// NAVBAR (fija arriba, igual en las 5 páginas)
+// En celular se pliega en un menú que abre js/main.js.
+// Sin JavaScript, los enlaces quedan visibles y bajan de línea.
+// =========================================================
+@use "../abstracts" as *;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color(green-deep);
+  border-bottom: 1px solid var(--line-onbg);
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px var(--gutter);
+
+  // ---------- Marca "Zou" ----------
+  &__brand {
+    color: color(cream);
+    font-family: font(title);
+    font-size: 1.9rem;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include extrude(3, 6px);
+  }
+
+  // ---------- Lista de enlaces ----------
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    padding: 8px 14px;
+    border-radius: $radius-pill;
+    color: color(cream);
+    font-family: font(label);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: var(--line-onbg);
+    }
+
+    // Página en la que estás
+    &[aria-current="page"] {
+      background: color(yellow);
+      color: color(green-deep);
+    }
+  }
+
+
+  // ---------- Botón "Menú" (solo celular) ----------
+  &__toggle {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px;
+    border: 1.5px solid color(cream);
+    border-radius: $radius-pill;
+    background: transparent;
+    color: color(cream);
+    font-family: font(label);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  &__bars {
+    position: relative;
+    width: 16px;
+    height: 2px;
+    background: currentColor;
+    transition: background 0.2s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 16px;
+      height: 2px;
+      background: currentColor;
+      transition: transform 0.25s ease;
+    }
+
+    &::before {
+      transform: translateY(-5px);
+    }
+
+    &::after {
+      transform: translateY(5px);
+    }
+  }
+
+  &.is-open &__bars {
+    background: transparent;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  @include respond(md) {
+    flex-wrap: wrap;
+
+    &__menu {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Con JavaScript activo, en celular el menú se pliega
+.js .navbar {
+  @include respond(md) {
+    &__toggle {
+      display: inline-flex;
+    }
+
+    &__menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 8px var(--gutter) 26px;
+      background: color(green-deep);
+      border-bottom: 1px solid var(--line-onbg);
+      box-shadow: var(--shadow);
+    }
+
+    // (se escribe .navbar__menu completo: "&__menu" acá repetiría el ".js")
+    &.is-open .navbar__menu {
+      display: flex;
+    }
+
+    &__link {
+      padding: 14px 4px;
+      border-bottom: 1px dashed var(--line-onbg);
+      border-radius: 0;
+      font-family: font(title);
+      font-size: 1.7rem;
+      font-weight: 400;
+
+      &[aria-current="page"] {
+        background: none;
+        color: color(yellow);
+      }
+    }
+  }
+}

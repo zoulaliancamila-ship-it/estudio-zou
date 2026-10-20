@@ -1,0 +1,83 @@
+// =========================================================
+// PROYECTOS (tarjetas con video)
+// La tarjeta .project también se usa en el destacado del inicio
+// =========================================================
+@use "../../abstracts" as *;
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: 34px;
+
+  @include respond(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond(xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  &__media {
+    position: relative;
+    margin-bottom: 14px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+    video {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top;
+      background: color(cream);
+    }
+  }
+
+  &:hover &__media {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.6);
+  }
+
+  // Cartelito "▶ recorrido" (se oculta mientras corre el video)
+  &__hint {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 5px 11px;
+    border-radius: $radius-pill;
+    background: rgba(23, 42, 21, 0.82);
+    color: color(cream);
+    font-family: font(label);
+    font-size: 0.68rem;
+    font-weight: 700;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  &.is-playing &__hint {
+    opacity: 0;
+  }
+
+  &__cat {
+    display: block;
+    margin-bottom: 6px;
+    color: color(red-onbg);
+    font-family: font(label);
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  &__title {
+    margin: 0 0 8px;
+    font-size: 1.55rem;
+  }
+
+  &__text {
+    margin: 0;
+    font-family: font(text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.75;
+  }
+}

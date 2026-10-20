@@ -1,0 +1,33 @@
+// =========================================================
+// RESET Y ESTILOS BASE
+// =========================================================
+@use "../abstracts" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: color(green-deep);
+  color: color(cream);
+  font-family: font(ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+picture {
+  display: block;
+}

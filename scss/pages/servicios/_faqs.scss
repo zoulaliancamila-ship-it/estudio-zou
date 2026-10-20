@@ -1,0 +1,112 @@
+// =========================================================
+// FAQS (preguntas desplegables)
+// =========================================================
+@use "../../abstracts" as *;
+
+.faqs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 0 44px;
+  margin-top: 30px;
+
+  @include respond(faq) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faq {
+  border-bottom: 1px solid var(--line-onbg);
+
+  // Línea superior solo en la primera fila
+  &:nth-child(-n + 2) {
+    border-top: 1px solid var(--line-onbg);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 2px;
+    list-style: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    // Botón "+" que gira a "×" al abrir
+    &::after {
+      @include flex-center;
+      content: "+";
+      flex: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: color(cream);
+      color: color(green-deep);
+      font-family: font(label);
+      font-size: 1.15rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    &:focus-visible {
+      outline: 2px solid color(yellow);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+  }
+
+  &[open] summary::after {
+    transform: rotate(45deg);
+    background: color(red-onbg);
+  }
+
+  &__num {
+    flex: none;
+    padding: 4px 9px;
+    border-radius: $radius-pill;
+    background: color(yellow);
+    color: color(green-deep);
+    font-family: font(label);
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  &__q {
+    flex: 1;
+    font-family: font(title);
+    font-size: 1.4rem;
+    line-height: 1.2;
+    transition: color 0.2s ease;
+  }
+
+  summary:hover &__q {
+    color: color(yellow);
+  }
+
+  &__a {
+    margin: 0 0 20px;
+    padding: 0 46px 0 58px;
+    font-family: font(text);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    opacity: 0.82;
+    animation: faqIn 0.35s ease;
+
+    a {
+      color: color(yellow);
+      text-underline-offset: 3px;
+    }
+  }
+
+  @include respond(faq) {
+    &:nth-child(2) {
+      border-top: none;
+    }
+
+    &__a {
+      padding: 0 8px;
+    }
+  }
+}

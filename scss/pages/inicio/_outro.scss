@@ -1,0 +1,33 @@
+// =========================================================
+// CIERRE DEL INICIO: "Estudio · Zou" gigante
+// =========================================================
+@use "../../abstracts" as *;
+
+.outro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  line-height: 1.02;
+
+  span {
+    color: #fff;
+    font-family: font(editorial);
+    font-size: clamp(2.6rem, 9vw, 6.4rem);
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    @include extrude(5, 10px);
+  }
+
+  @include respond(sm) {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+}
+
+.closing {
+  padding-top: 40px;
+}

@@ -1,0 +1,49 @@
+// =========================================================
+// VENTANITA ESTILO NAVEGADOR (proyectos y contacto)
+// =========================================================
+@use "../abstracts" as *;
+
+.win {
+  overflow: hidden;
+  background: color(cream);
+  color: color(ink);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: color(green);
+    color: color(cream);
+    font-family: font(label);
+    font-size: 0.8rem;
+
+    &--red {
+      background: color(red);
+    }
+
+    &--yellow {
+      background: color(yellow);
+      color: color(green-deep);
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 6px;
+
+    span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+    }
+  }
+
+  &__bar--yellow &__dots span {
+    background: rgba(43, 42, 34, 0.3);
+  }
+}

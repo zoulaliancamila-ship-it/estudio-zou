@@ -1,0 +1,49 @@
+// =========================================================
+// BOTÓN
+// =========================================================
+@use "../abstracts" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border: none;
+  border-radius: $radius-pill;
+  background: color(green);
+  color: color(cream);
+  font-family: font(ui);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: color(red-deep);
+  }
+}
+
+// Versión con borde (acción secundaria)
+.btn--ghost {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px color(cream);
+
+  &:hover {
+    background: color(cream);
+    color: color(green-deep);
+  }
+}
+
+// Versión con borde sobre fondo claro (404)
+.btn--ghost-dark {
+  background: transparent;
+  color: color(ink);
+  box-shadow: inset 0 0 0 1.5px color(ink);
+
+  &:hover {
+    background: color(ink);
+    color: color(cream);
+  }
+}

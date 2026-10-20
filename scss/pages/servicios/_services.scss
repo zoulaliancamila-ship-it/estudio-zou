@@ -1,0 +1,70 @@
+// =========================================================
+// SERVICIOS
+// =========================================================
+@use "sass:list";
+@use "../../abstracts" as *;
+
+// Colores del número de cada tarjeta (fondo, texto), en orden
+$service-colors: (
+  (color(green), color(cream)),
+  (color(rose), color(cream)),
+  (color(yellow), color(green-deep)),
+  (color(ink), color(cream)),
+  (color(red), color(cream)),
+);
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 34px;
+
+  @include respond(lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond(xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service {
+  padding: 24px;
+  background: color(cream);
+  color: color(ink);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+
+  &__num {
+    @include flex-center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    font-family: font(label);
+    font-weight: 700;
+  }
+
+  @for $i from 1 through list.length($service-colors) {
+    $pair: list.nth($service-colors, $i);
+
+    &:nth-child(#{$i}) &__num {
+      background: list.nth($pair, 1);
+      color: list.nth($pair, 2);
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+  }
+
+  &__text {
+    margin: 0;
+    font-family: font(text);
+    font-size: 0.89rem;
+    line-height: 1.55;
+    opacity: 0.75;
+  }
+}

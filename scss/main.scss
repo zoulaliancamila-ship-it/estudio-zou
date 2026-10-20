@@ -1,0 +1,44 @@
+// =========================================================
+// ESTUDIO ZOU — Hoja de estilos principal
+// Compila a css/styles.css  →  npm run build:css
+//
+// Estructura:
+//   abstracts/  variables, funciones y mixins (no generan CSS)
+//   base/       variables CSS, reset, tipografía y animaciones
+//   components/ piezas que se repiten en varias páginas
+//   layout/     navbar, secciones y footer (iguales en todo el sitio)
+//   pages/      una carpeta por página, con los estilos que solo usa esa página
+//   utilities/  ajustes globales (accesibilidad)
+// =========================================================
+
+// Base
+@use "base/root";
+@use "base/reset";
+@use "base/typography";
+@use "base/animations";
+
+// Componentes compartidos
+@use "components/tag";
+@use "components/window";
+@use "components/button";
+@use "components/link";
+@use "components/page-head";
+@use "components/next";
+
+// Layout
+@use "layout/header";
+@use "layout/section";
+
+// Páginas
+@use "pages/inicio";      // index.html
+@use "pages/sobre-mi";    // sobre-mi.html
+@use "pages/proyectos";   // proyectos.html
+@use "pages/servicios";   // servicios.html
+@use "pages/contacto";    // contacto.html
+@use "pages/error";       // 404.html
+
+// Layout final
+@use "layout/footer";
+
+// Utilidades
+@use "utilities/accessibility";

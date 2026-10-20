@@ -1,0 +1,78 @@
+// =========================================================
+// ANIMACIONES (keyframes compartidos)
+// =========================================================
+
+// Forma orgánica que va cambiando (índice y clientes)
+@keyframes blobMorph {
+  0%,
+  100% {
+    border-radius: 63% 37% 54% 46% / 43% 51% 49% 57%;
+  }
+  25% {
+    border-radius: 46% 54% 37% 63% / 55% 43% 57% 45%;
+  }
+  50% {
+    border-radius: 37% 63% 46% 54% / 60% 37% 63% 40%;
+  }
+  75% {
+    border-radius: 54% 46% 63% 37% / 45% 58% 42% 55%;
+  }
+}
+
+// Flote suave de los globos de clientes
+@keyframes blobFloat {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+  25% {
+    transform: translate(8px, -16px) rotate(-2deg);
+  }
+  50% {
+    transform: translate(-10px, 4px) rotate(2deg);
+  }
+  75% {
+    transform: translate(6px, 12px) rotate(-1deg);
+  }
+}
+
+// Logos del hero
+@keyframes logoFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+// Línea punteada del óvalo
+@keyframes ringMarch {
+  to {
+    stroke-dashoffset: -220;
+  }
+}
+
+// Palabras del óvalo
+@keyframes chipBob {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, calc(-50% - 6px));
+  }
+}
+
+// Respuesta de las FAQs al abrirse
+@keyframes faqIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 0.82;
+    transform: none;
+  }
+}
