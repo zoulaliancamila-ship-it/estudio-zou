@@ -20,6 +20,8 @@ El inicio tiene que llamarse `index.html`: es el archivo que abre el hosting cua
 
 ## Estilos
 
+Las tipografías están en `fonts/` (archivos propios del sitio, no se cargan de Google Fonts): League Gothic para títulos, Yellowtail para el nombre, Source Code Pro, Space Grotesk y Space Mono. Todas con licencia SIL Open Font License.
+
 Los estilos se escriben en `scss/` y se compilan a un solo `css/styles.css`, que trae únicamente las clases que usan las páginas.
 
 ```

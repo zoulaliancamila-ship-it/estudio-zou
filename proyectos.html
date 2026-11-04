@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 
 <head>
   <!-- ====== Básicos ====== -->
@@ -9,42 +9,24 @@
 
   <!-- ====== SEO ====== -->
   <meta name="description" content="Proyectos de Estudio Zou: Studio INK, MB Nail's Studio y Kodland Latinoamérica. Webs con identidad propia, turnos y diseño responsive.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://estudiozou.netlify.app/proyectos.html">
-
-  <!-- ====== Autoría y derechos ====== -->
   <meta name="author" content="Camila Zoulalian">
-  <meta name="copyright" content="© 2026 Camila Zoulalian · Estudio Zou">
-  <meta name="publisher" content="Estudio Zou">
+  <meta name="robots" content="index, follow">
 
-  <!-- ====== Vista previa al compartir (Instagram, LinkedIn, WhatsApp, mail) ====== -->
+  <!-- ====== Vista previa al compartir (Instagram, LinkedIn) ====== -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
   <meta property="og:site_name" content="Estudio Zou">
   <meta property="og:title" content="Proyectos | Estudio Zou">
   <meta property="og:description" content="Las webs que diseñé y desarrollé, y lo que dicen mis clientes.">
-  <meta property="og:url" content="https://estudiozou.netlify.app/proyectos.html">
-  <meta property="og:image" content="https://estudiozou.netlify.app/images/og/estudio-zou.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Estudio Zou, diseño y desarrollo web por Camila Zoulalian">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Proyectos | Estudio Zou">
-  <meta name="twitter:description" content="Las webs que diseñé y desarrollé, y lo que dicen mis clientes.">
-  <meta name="twitter:image" content="https://estudiozou.netlify.app/images/og/estudio-zou.jpg">
+  <meta name="twitter:card" content="summary">
 
-  <!-- ====== Íconos y celular ====== -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+  <!-- ====== Móvil y navegador ====== -->
   <meta name="theme-color" content="#172a15">
   <meta name="format-detection" content="telephone=no">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23172a15'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='40' fill='%23fbf6ec'%3EZ%3C/text%3E%3C/svg%3E">
 
-  <!-- ====== Tipografías ====== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@1,6..96,800&family=Dancing+Script:wght@600&family=Fira+Sans+Condensed:wght@500;600&family=Instrument+Serif&family=Source+Code+Pro:wght@400;500&family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap">
+  <!-- ====== Tipografías (propias, en /fonts) ====== -->
+  <link rel="preload" href="fonts/league-gothic.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- ====== Estilos y scripts del sitio ====== -->
   <!-- Los estilos se escriben en scss/ y se compilan a css/styles.css -->
@@ -80,7 +62,7 @@
         <li><a class="navbar__link" href="sobre-mi.html">Sobre mí</a></li>
         <li><a class="navbar__link" href="proyectos.html" aria-current="page">Proyectos</a></li>
         <li><a class="navbar__link" href="servicios.html">Servicios</a></li>
-        <li><a class="navbar__link" href="contacto.html">Contacto</a></li>
+        <li><a class="btn btn--sm navbar__cta" href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -100,9 +82,9 @@
           <div class="win project__media">
             <div class="win__bar win__bar--red"><span
                 class="win__dots"><span></span><span></span><span></span></span>studio-ink.netlify.app</div>
-            <video poster="videos/studio-ink-poster.webp" muted loop playsinline preload="none">
-              <source src="videos/studio-ink.webm" type="video/webm">
+            <video poster="videos/studio-ink-poster.jpg" muted loop playsinline preload="none">
               <source src="videos/studio-ink.mp4" type="video/mp4">
+              <source src="videos/studio-ink.webm" type="video/webm">
             </video>
             <span class="project__hint" aria-hidden="true">▶ recorrido</span>
           </div>
@@ -117,9 +99,9 @@
           <div class="win project__media">
             <div class="win__bar win__bar--yellow"><span
                 class="win__dots"><span></span><span></span><span></span></span>mbnailss.netlify.app</div>
-            <video poster="videos/mbnails-poster.webp" muted loop playsinline preload="none">
-              <source src="videos/mbnails.webm" type="video/webm">
+            <video poster="videos/mbnails-poster.jpg" muted loop playsinline preload="none">
               <source src="videos/mbnails.mp4" type="video/mp4">
+              <source src="videos/mbnails.webm" type="video/webm">
             </video>
             <span class="project__hint" aria-hidden="true">▶ recorrido</span>
           </div>
@@ -134,9 +116,9 @@
           <div class="win project__media">
             <div class="win__bar"><span
                 class="win__dots"><span></span><span></span><span></span></span>kodlandlatam.netlify.app</div>
-            <video poster="videos/kodland-poster.webp" muted loop playsinline preload="none">
-              <source src="videos/kodland.webm" type="video/webm">
+            <video poster="videos/kodland-poster.jpg" muted loop playsinline preload="none">
               <source src="videos/kodland.mp4" type="video/mp4">
+              <source src="videos/kodland.webm" type="video/webm">
             </video>
             <span class="project__hint" aria-hidden="true">▶ recorrido</span>
           </div>
@@ -195,7 +177,7 @@
       </nav>
       <ul class="footer__contact">
         <li><a href="https://www.instagram.com/estudiozou/" target="_blank" rel="noopener">@estudiozou</a></li>
-        <li><a href="mailto:zoulaliancamila@gmail.com">zoulaliancamila@gmail.com</a></li>
+        <li><a href="mailto:estudiozou@gmail.com">estudiozou@gmail.com</a></li>
       </ul>
     </div>
     <p class="footer__copy">Copyright © 2026 Camila Zoulalian. Todos los derechos reservados.</p>
